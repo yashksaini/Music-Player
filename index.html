@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music Player || Yash Kumar Saini || 2022</title>
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/track.css" />
+    <link rel="stylesheet" href="styles/modal.css" />
+    <link rel="stylesheet" href="styles/animation.css" />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <!-- Icon -->
+    <link rel="icon" type="image/x-icon" href="icon.png" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="navigation">
+        <button id="playlist" class="settings" onclick="showPlaylist()">
+          <i class="fa-solid fa-list-ul"></i>
+          <i class="fa-solid fa-arrow-left-long"></i>
+        </button>
+        <p id="artist">Arman Malik</p>
+        <button data-modalId="modal1" class="modalButton settings">
+          <i class="fa-solid fa-gear"></i>
+          <i class="fa-solid fa-gear"></i>
+        </button>
+      </div>
+      <div id="trackArea">
+        <audio
+          src="songs/1.mp3"
+          id="currentAudio"
+          style="display: none"
+        ></audio>
+        <img src="images/1.jpg" class="poster" id="poster" />
+        <h1 id="songTitle">Besabriyaan</h1>
+        <input type="range" id="track" min="0" step="0.1" value="0" />
+        <div class="duration">
+          <p id="currentTime">0:00</p>
+          <p id="totalTime">4:15</p>
+        </div>
+        <div class="controls">
+          <button class="circle special" id="shuffle" onclick="shuffleList();">
+            <i class="fa-solid fa-shuffle"></i>
+          </button>
+          <div class="circle">
+            <button class="circle step" onclick="nextSong(1)">
+              <i class="fa-solid fa-backward-step"></i>
+            </button>
+            <button class="circle play" id="playBtn" onclick="playPause()">
+              <i class="fa-solid fa-play"></i>
+              <i class="fa-solid fa-pause"></i>
+            </button>
+            <button class="circle step" onclick="nextSong(2)">
+              <i class="fa-solid fa-forward-step"></i>
+            </button>
+          </div>
+          <button class="circle special" id="repeat" onclick="repeatSong()">
+            <i class="fa-solid fa-rotate-right"></i>
+          </button>
+        </div>
+      </div>
+      <div class="songsBar hide" id="songsList">
+        <!-- Songs Appear Here -->
+      </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div class="modal" id="modal1">
+      <div class="modal-dialog">
+        <div class="modal-header">
+          <h2>Settings</h2>
+          <p class="close"><i class="fa-solid fa-xmark"></i></p>
+        </div>
+        <div class="modal-body">
+          <h4 class="volume">
+            Volume
+            <span id="volumeValue">100</span>
+          </h4>
+          <input
+            type="range"
+            id="volume"
+            min="0"
+            step="0.01"
+            value="1"
+            max="1"
+          />
+          <h4 class="themeHead">Theme</h4>
+          <div class="theme">
+            <div class="box circle" onclick="theme(0)">
+              <i class="fa-solid fa-moon"></i>
+            </div>
+            <div class="box circle active" onclick="theme(1)">
+              <i class="fa-solid fa-sun"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="scripts/script.js"></script>
+    <script src="scripts/modal.js"></script>
+    <script src="scripts/music.js"></script>
+  </body>
+</html>
